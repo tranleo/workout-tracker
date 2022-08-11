@@ -1,0 +1,7 @@
+<h3>Plan Name: {{ key }}</h3>
+<div class="exercise-item" *ngFor="let exercise of planExercises">
+    <p>
+        Exercise: {{ exercise.name }} {{ exercise.goal_sets }}x{{ exercise.goal_repetitions }}
+    </p>
+    <button style="margin: 5px;" (click)="planService.editPlan(key, exercise)">Remove</button>
+</div>

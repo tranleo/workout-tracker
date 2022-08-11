@@ -1,0 +1,21 @@
+<h3>Plan Name: {{ key }}</h3>
+<form [formGroup]="logForm">
+    <label for="date">Date: </label>
+    <input id="date" type="string" formControlName="date">
+    <div class="exercise-item" *ngFor="let exercise of planExercises">
+        <p>
+            Exercise: {{ exercise.name }} {{ exercise.goal_sets }}x{{ exercise.goal_repetitions }}
+        </p>
+        <select id="completed" name="completed" formControlName="completed">
+            <option value="<">< {{ exercise.goal_repetitions }} Repetitions</option>
+            <option value="=">= {{ exercise.goal_repetitions }} Repetitions</option>
+            <option value=">">> {{ exercise.goal_repetitions }} Repetitions</option>
+        </select>
+        <button (click)="confirmExercise()">Confirm</button>
+    </div>
+    <button (click)="logWorkout()">Log Workout</button>
+</form>
+
+<div class="log-item" *ngFor="let log of logData" style="border:1px solid black;
+margin: 10px; padding: 10px;">
+    <h3> {{ log }}</h3>

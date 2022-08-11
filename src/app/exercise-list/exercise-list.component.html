@@ -1,0 +1,16 @@
+<h3>Exercises</h3>
+<div class="exercise-list">
+    <div class="exercise-list-item" *ngFor="let exercises of exercises">
+        <h3>
+            {{ exercises.name }}
+        </h3>
+    
+        <p *ngIf="exercises.goal_sets">
+            Recommended Sets: {{ exercises.goal_sets }}
+        </p>
+    
+        <p *ngIf="exercises.goal_repetitions">
+            Recommended Repetitions: {{ exercises.goal_repetitions }}
+        </p>
+    </div>
+</div>

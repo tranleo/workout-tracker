@@ -1,0 +1,29 @@
+<h3>Create a Workout Plan</h3>
+<body>
+    <form [formGroup]="planService.planForm">
+        <div>
+            <label for="planName">Name: </label>
+            <input id="planName" type="text" formControlName="planName">
+            <button class="fancy-button" type="submit" (click)="planService.createPlan()">Create Plan</button>
+        </div>
+    </form>
+
+    <div class="add-exercises">
+        <form [formGroup]="planService.planSxR">
+            <div class="each-exercise" *ngFor="let exercises of exercises">
+                <h3>
+                    <h3 [title]="exercises.name">
+                        {{ exercises.name }}
+                    </h3>
+                    <label for="goal_sets">Sets: </label>
+                    <input id="goal_sets" type="number" formControlName="goal_sets">
+                    <label for="goal_repetitions">Repetitions: </label>
+                    <input id="goal_repetitions" type="number" formControlName="goal_repetitions">
+                </h3>
+                <button type="button"
+                (click)="planService.addToPlan(this.exercises)">
+                Add to Plan</button>
+            </div>
+        </form>
+    </div>
+</body>

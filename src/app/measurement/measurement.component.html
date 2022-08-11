@@ -1,0 +1,34 @@
+<h3>Measurements</h3>
+<body>
+    <div class="measurement-div">
+        <form [formGroup]="measurementForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="name">Name: </label>
+                <input id="name" type="text" formControlName="name">
+            </div>
+    
+            <div>
+                <label for="age">Age: </label>
+                <input id="age" type="number" formControlName="age">
+            </div>
+    
+            <div>
+                <label for="height">Height</label>
+                <input id="height" type="text" formControlName="height">
+            </div>
+    
+            <div>
+                <label for="weight">Weight</label>
+                <input id="weight" type="number" formControlName="weight">
+            </div>
+    
+            <div>
+                <label for="bodyfatPercent">Bodyfat %</label>
+                <input id="bodyfatPercent" type="number" formControlName="bodyfatPercent">
+            </div>
+    
+            <button class="button" type="submit" [disabled]="!measurementForm.valid">Update</button>
+            <button class="button" type="reset" (click)="clearMeasurements()">Clear</button>
+        </form>
+    </div>
+</body>

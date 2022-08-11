@@ -1,0 +1,28 @@
+<h3>Workout Plans</h3>
+
+<!-- Hard coded plans.ts example
+<div class="plan-item" *ngFor="let plansEx of plansEx">
+    <h4>{{ plansEx.name }}</h4>
+    <p>Exercise 1: {{ plansEx.exercises[0].name }}</p>
+    <p>Goal Sets: {{ plansEx.exercises[0].goal_sets }}</p>
+    <p>Goal Repetitions: {{ plansEx.exercises[0].goal_repetitions }}</p>
+    <br>
+    <p>Exercise 2: {{ plansEx.exercises[1].name }}</p>
+    <p>Goal Sets: {{ plansEx.exercises[1].goal_sets }}</p>
+    <p>Goal Repetitions: {{ plansEx.exercises[1].goal_repetitions }}</p>
+    <button type="button" (click)="removeFromPlan()">Remove</button>
+</div> -->
+
+<!-- Dynamic example -->
+<div class="plan-item" *ngFor="let keys of keys">
+  <div class="item">
+    <h3>Plan Name: {{ keys }}</h3>
+    <div *ngFor="let planData of planExercises;"> <!-- planExercises[] = planData[ {{ exercises }} ] -->
+      <p class="exercise-item" *ngFor="let exercise of planData">
+        Exercise: {{ exercise.name }} {{ exercise.goal_sets }}x{{ exercise.goal_repetitions }}
+      </p>
+    </div>
+      <a [routerLink]="['/edit-plan', keys]" class="button fancy-button">Edit</a>
+    <button class="button fancy-button" (click)="planService.removePlan(keys)">Delete</button>
+  </div>
+</div>
